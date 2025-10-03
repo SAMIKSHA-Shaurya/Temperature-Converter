@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #container {
+            margin: 50px auto;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Temperature Converter</h1>
+        <label for="celsius">Celsius:</label>
+        <input type="number" id="celsius" placeholder="Enter temperature in Celsius">
+        <br>
+        <label for="fahrenheit">Fahrenheit:</label>
+        <input type="number" id="fahrenheit" placeholder="Temperature in Fahrenheit">
+        <br>
+        <button onclick="convert()">Convert</button>
+    </div>
+
+    <script>
+        function convert() {
+            var celsiusInput = document.getElementById("celsius");
+            var fahrenheitInput = document.getElementById("fahrenheit");
+
+            if (celsiusInput.value !== "") {
+                var celsius = parseFloat(celsiusInput.value);
+                var fahrenheit = (celsius * 9/5) + 32;
+                fahrenheitInput.value = fahrenheit.toFixed(2);
+            } else if (fahrenheitInput.value !== "") {
+                var fahrenheit = parseFloat(fahrenheitInput.value);
+                var celsius = (fahrenheit - 32) * 5/9;
+                celsiusInput.value = celsius.toFixed(2);
+            } else {
+                alert("Please enter a temperature to convert.");
+            }
+        }
+    </script>
+</body>
+</html>
